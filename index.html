@@ -332,6 +332,13 @@
 			position: fixed;
 			height: 100%
 		}
+
+		.error {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+		}
 	</style>
 </head>
 
@@ -498,14 +505,14 @@
 
 			var ua = navigator.userAgent.toLowerCase();
 			if (!(ua.match(/MicroMessenger/i) == "micromessenger")) {
-				Dom.body.html('请在公众号：中二读物 内打开链接');
+				Dom.body.html('<div class="error">请在公众号：中二读物 内打开链接</div>');
 				return;
 			}
 
 			var novelId = getQueryVariable("nid");
 
 			if (novelId === false) {
-				Dom.body.html('链接有误，请确认链接是否正确后重新打开链接');
+				Dom.body.html('<div class="error">链接有误，请确认链接是否正确后重新打开链接</div>');
 				return;
 			}
 
