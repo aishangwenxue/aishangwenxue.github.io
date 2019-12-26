@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="css/reset.css">
-	
+
 	<style type="text/css">
 		html {
 			width: 100%;
@@ -44,9 +44,9 @@
 		}
 
 		.button-tab {
-			height: 34px;
+			height: 40px;
 			margin: 10px auto;
-			line-height: 34px;
+			line-height: 40px;
 			border-radius: 8px;
 			border: 1px solid #858382;
 			font-size: 12px;
@@ -67,9 +67,7 @@
 		}
 
 		.button {
-			width: 70%;
-			max-width: 800px;
-			padding: 5px;
+			width: 100%;
 			margin: 0 auto;
 		}
 
@@ -317,9 +315,12 @@
 		}
 
 		.menu-list li {
-			line-height: 20px;
+			line-height: 30px;
+			cursor: pointer;
 			color: #fff;
 			margin-bottom: 5px;
+			border-bottom: solid 2px gray;
+			display: block;
 		}
 
 		#loading {
@@ -433,7 +434,7 @@
 		window.jQuery = $;
 	</script>
 	<script src="js/jquery.base64.js"></script>
-	
+
 
 	<script>
 		(function () {
@@ -493,6 +494,12 @@
 					}
 				}
 				return (false);
+			}
+
+			var ua = navigator.userAgent.toLowerCase();
+			if (!(ua.match(/MicroMessenger/i) == "micromessenger")) {
+				Dom.body.html('请在公众号：中二读物 内打开链接');
+				return;
 			}
 
 			var novelId = getQueryVariable("nid");
