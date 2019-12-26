@@ -562,7 +562,7 @@
 				};
 
 				var getFictionInfo = function (callback) {
-					$.get('data/' + novelId + '/chapter.json', function (data) {
+					$.get('data/' + novelId + '/chapter.js', function (data) {
 						//todo 获得章节信息之后的回调
 						Chapter_id = Util.StorageGetter('lase_chapter_id');
 						if (Chapter_id == null) {
@@ -579,7 +579,7 @@
 
 				var getCurChapterContent = function (chapter_id, callback) {
 					$('#loading').show();
-					$.get('data/' + novelId + '/' + chapter_id + '.json', function (data) {
+					$.get('data/' + novelId + '/' + chapter_id + '.js', function (data) {
 						callback && callback(data);
 						$('#loading').hide();
 
