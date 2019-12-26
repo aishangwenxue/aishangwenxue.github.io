@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="css/reset.css">
+	
 	<style type="text/css">
 		html {
 			width: 100%;
@@ -321,12 +322,20 @@
 			margin-bottom: 5px;
 		}
 
-		p {}
+		#loading {
+			z-index: 11111;
+			background: url(images/loading.gif) no-repeat 10px top;
+			left: 50%;
+			top: 50%;
+			width: 100%;
+			position: fixed;
+			height: 100%
+		}
 	</style>
 </head>
 
 <body>
-
+	<div id="loading" hidden></div>
 	<div id="sjid" class="subject">
 
 		<div class="menu-div-hide" id="menu-div">
@@ -424,7 +433,7 @@
 		window.jQuery = $;
 	</script>
 	<script src="js/jquery.base64.js"></script>
-	<script src="js/jquery.jsonp.js"></script>
+	
 
 	<script>
 		(function () {
@@ -562,8 +571,11 @@
 				};
 
 				var getCurChapterContent = function (chapter_id, callback) {
+					$('#loading').show();
 					$.get('data/' + novelId + '/' + chapter_id + '.json', function (data) {
 						callback && callback(data);
+						$('#loading').hide();
+
 					}, 'json');
 				};
 
